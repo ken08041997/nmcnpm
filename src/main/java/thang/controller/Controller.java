@@ -30,7 +30,7 @@ public class Controller extends HttpServlet {
 		String url;
 		String action = request.getParameter("action");
 		switch (action) {
-		case "regis":
+		case "regisform":
 			try {
 			
 				response.sendRedirect(request.getContextPath() + "/register");
@@ -42,11 +42,23 @@ public class Controller extends HttpServlet {
 //			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
 //			dispatcher.forward(request,response);
 			break;
-//		case "confirm":
-//			String nextJSP = "/register";
-//			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
-//			dispatcher.forward(request,response);
-//			break;
+		case "loginfb":
+			System.out.println("move to facebook");
+			url = "/login-facebook";
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+			dispatcher.forward(request,response);
+			break;
+		case "logingg":
+			System.out.println("move to google");
+			url = "/login-google";
+			RequestDispatcher dispatcher1 = getServletContext().getRequestDispatcher(url);
+			dispatcher1.forward(request,response);
+			break;
+		case "valid":
+			url = "/validemail";
+			RequestDispatcher dispatcher2 = getServletContext().getRequestDispatcher(url);
+			dispatcher2.forward(request,response);
+			break;
 		default:
 			break;
 		}
@@ -95,3 +107,4 @@ public class Controller extends HttpServlet {
 	}
 
 }
+

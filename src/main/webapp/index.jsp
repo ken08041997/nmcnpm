@@ -107,8 +107,9 @@
 		<h2>Đăng nhập</h2>
 		<div class="form-group">
 			<div class="row">
-				<div class="col-xs-6"><input type="button" class="form-control btn btn-primary" name="" value="Facebook"></div>
-				<div class="col-xs-6"><input type="button" class="form-control btn" name="" value="Google"></div>
+				<div class="col-xs-6"><a href="https://www.facebook.com/dialog/oauth?client_id=965814963626813&redirect_uri=https://localhost:8443/thang/action?action=loginfb"><input type="button" class="form-control btn btn-primary" name="" value="Facebook"></a></div>
+				<div class="col-xs-6"><a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/thang/action?action=logingg&response_type=code
+    &client_id=803901185756-e0qa3h5hicn9botoesnieba078mufu9s.apps.googleusercontent.com&approval_prompt=force"><input type="button" class="form-control btn" name="" value="Google"></a></div>
 			</div>        	
         </div>
         <div class="form-group">
@@ -121,7 +122,7 @@
             <button type="submit" class="btn btn-success btn-lg btn-block">Đăng nhập</button>
         </div>
     </form>
-	<div class="text-center">Chưa có tài khoản? <a href="<%=request.getContextPath() %>/action?action=regis">Đăng ký</a></div>
+	<div class="text-center">Chưa có tài khoản? <a href="<%=request.getContextPath() %>/action?action=regisform">Đăng ký</a></div>
 </div>
 
 

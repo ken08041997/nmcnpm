@@ -14,6 +14,10 @@ public class User {
 		this.number = number;
 		this.password= password;
 	}
+	public User(String fname,String email) {
+		this.fname= fname;
+		this.email=email;
+	}
 	public User() {
 		super();
 	}

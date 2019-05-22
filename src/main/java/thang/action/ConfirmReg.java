@@ -33,6 +33,7 @@ public class ConfirmReg extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		String number = request.getParameter("number");
 		if (number ==null) {
 			String url="/WEB-INF/jsp/confirmreg.jsp";
@@ -44,7 +45,9 @@ public class ConfirmReg extends HttpServlet {
 				if (email.equals(user.getEmail())) {
 					if (number.equals(user.getCode())) {
 						userDAO.getListUser().add(new User(user.getFname(),user.getLname(),user.getEmail(),user.getNumber(),user.getPassword()));
-						userDAO.getListTemp().remove(user);System.out.println(userDAO.getListUser());
+						userDAO.getListTemp().remove(user);
+						request.setAttribute("info1", user.getFname());
+						request.setAttribute("info2", user.getEmail());
 						String url="/WEB-INF/jsp/success.jsp";
 						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
 						dispatcher.forward(request,response);

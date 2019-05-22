@@ -4,18 +4,5 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-  	<servlet-name>ConfirmReg</servlet-name>
-  	<display-name>ConfirmReg</display-name>
-  	<description></description>
-  	<servlet-class>thang.action.ConfirmReg</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>ConfirmReg</servlet-name>
-  	<url-pattern>/ConfirmReg</url-pattern>
-  </servlet-mapping>
   
-  <welcome-file-list>
-  	<welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
 </web-app>

@@ -17,6 +17,10 @@
 		background: #63738a;
 		font-family: 'Roboto', sans-serif;
 	}
+	.error{
+	margin-top: 5px;
+		color: red;
+	}
     .form-control{
 		height: 40px;
 		box-shadow: none;
@@ -102,8 +106,10 @@
 </style>
 </head>
 <body>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
 <div class="signup-form">
-    <form action="register" method="post">
+    <form action="<%=request.getContextPath() %>/action?action=regis" method="post" id="formreg">
 		<h2>Đăng ký</h2>
 		<p class="hint-text">Tạo tài khoản của bạn. Miễn phí và nhanh chóng</p>
         <div class="form-group">
@@ -113,16 +119,16 @@
 			</div>        	
         </div>
         <div class="form-group">
-        	<input type="email" class="form-control" name="email" placeholder="Emaill" required="required">
+        	<input type="email" class="form-control" name="email" placeholder="Emaill">
         </div>
         <div class="form-group">
-        	<input type="number" class="form-control" name="number" placeholder="Số điện thoại" required="required">
+        	<input type="number" class="form-control" name="number" placeholder="Số điện thoại">
         </div>
 		<div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Mật khẩu" required="required">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Mật khẩu">
         </div>
 		<div class="form-group">
-            <input type="password" class="form-control" name="confirm_password" placeholder="Xác nhận mật khẩu" required="required">
+            <input type="password" class="form-control" name="confirm_password" placeholder="Xác nhận mật khẩu">
         </div>        
         <div class="form-group">
 			<label class="checkbox-inline"><input type="checkbox" required="required"> Tôi đồng ý <a href="#">điều khoản</a> &amp; <a href="#">chính sách</a></label>
@@ -135,8 +141,53 @@
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js"></script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<script>
+
+$(function() {
+$("#formreg").validate({
+ 
+    rules: {
+        email: {
+        	 required: true,
+        	email: true,
+        	remote : 'http://localhost:8080/thang/action?action=valid'
+           
+        },
+        fname: {required: true,
+            minlength: 3
+        },
+        lname: {
+            minlength: 3
+        },
+        number: {
+        	minlength: 10
+        },
+        confirm_password: {
+        	equalTo: "#password"
+        }
+    },
+    messages: {
+        email: {
+            email: "Email không đúng định dạng",
+            remote: "Email đã có người sử dụng"
+        },
+        fname: {
+            minlength: "Tên phải có ít nhất 3 ký tự"
+        },
+        lname: {
+            minlength: "Họ phải có ít nhất 3 ký tự"
+        },
+        number: {
+            minlength: "Số điện thoại phải có ít nhất 10 chữ số"
+        },
+        confirm_password: {
+        	equalTo: "Không trùng khớp"
+        }
+    }
+});
+});
+</script>
 </body>
 </html>                            
