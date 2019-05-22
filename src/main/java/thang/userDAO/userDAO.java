@@ -28,6 +28,13 @@ public class userDAO {
 	public static void setListTemp(ArrayList<UserTemp> listTemp) {
 		userDAO.listTemp = listTemp;
 	}
-
-
-}
+	public static void insertTemp(UserTemp user) {
+		getListTemp().add(user); System.out.println(getListTemp().size());
+	}
+	public static void insertUser(User user) {
+		getListUser().add(user);
+	}
+	public static void removeUser(UserTemp user) {
+		getListTemp().remove(user);
+	}
+	}

@@ -103,7 +103,7 @@
 </head>
 <body>
 <div class="signup-form">
-    <form action="/examples/actions/confirmation.php" method="post">
+    <form action="Login" method="post">
 		<h2>Đăng nhập</h2>
 		<div class="form-group">
 			<div class="row">

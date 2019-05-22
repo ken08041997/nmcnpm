@@ -44,8 +44,9 @@ public class ConfirmReg extends HttpServlet {
 			for (UserTemp user : userDAO.getListTemp()) {
 				if (email.equals(user.getEmail())) {
 					if (number.equals(user.getCode())) {
-						userDAO.getListUser().add(new User(user.getFname(),user.getLname(),user.getEmail(),user.getNumber(),user.getPassword()));
-						userDAO.getListTemp().remove(user);
+						User userr = new User(user.getFname(),user.getLname(),user.getEmail(),user.getNumber(),user.getPassword());
+						userDAO.insertUser(userr);
+						userDAO.removeUser(user); System.out.println(userDAO.getListTemp().size());
 						request.setAttribute("info1", user.getFname());
 						request.setAttribute("info2", user.getEmail());
 						String url="/WEB-INF/jsp/success.jsp";

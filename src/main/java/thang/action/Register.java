@@ -54,8 +54,8 @@ public class Register extends HttpServlet {
 		Random random = new Random();
         int num = random.nextInt(100000);
         String code = String.format("%05d", num);
-        
-		userDAO.getListTemp().add(new UserTemp(fname,lname,email,number,password,code));System.out.println(userDAO.getListTemp());
+        UserTemp user = new UserTemp(fname,lname,email,number,password,code);
+		userDAO.getListTemp().add(user);System.out.println(userDAO.getListTemp().size());
 		MailSender.send(email, "Please Confirm", code);
 		
 		String url = "/confirm?email="+email;
